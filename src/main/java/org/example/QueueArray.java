@@ -92,6 +92,9 @@ public class QueueArray {
                    }
                    backOfQueue--;
                    nItems--;
+                   System.out.println("You have adopted the oldest dog");
+                   break;
+
                }
            }
 
