@@ -18,11 +18,13 @@ public class QueueArray {
     public void getQueue(){
         for (int i = beginningOfQueue; i <backOfQueue +1; i++){
             System.out.print(arr[i]);
-            if (i != nItems -1){
+            if (i != backOfQueue){
                 System.out.print(" <-> ");
             }
         }
+//        System.out.println("nitems: " + nItems);
     }
+
 
 
 
@@ -53,25 +55,48 @@ public class QueueArray {
             System.out.println("full queue");
         } else if (isEmpty()){
             beginningOfQueue = 0;
-            backOfQueue++;
-            arr[backOfQueue] = value;
-            System.out.println("Inserted " + value + " into the queue");
-        } else{
-            backOfQueue++;
-            nItems++;
-            arr[backOfQueue] = value;
-            System.out.println("Inserted " + value + "into the queue");
         }
+        backOfQueue++;
+        arr[backOfQueue] = value;
+        nItems++;
+        System.out.println("Inserted " + value + " into the queue");
     }
 
-    public int deQueue(){
-        if(isEmpty()){
-            System.out.println("Queue is empty");
-            return 0;
-        }else{
-            int result;
-            return result = arr[beginningOfQueue];
+    public int deQueue() {
+        int result = 0;
+        if (isEmpty()) {
+            System.out.println("The Queue is empty");
+        } else {
+            result = arr[beginningOfQueue];
+            beginningOfQueue++;
+            if (beginningOfQueue > backOfQueue) {
+                beginningOfQueue = backOfQueue = -1;
+            }
+            nItems--;
         }
+        return result;
+    }
+
+    public int adoptOldestDog(){
+        int result = 0;
+
+        if (isEmpty()) {
+            System.out.println("The Queue is empty");
+
+        } else {
+           for(int i =beginningOfQueue; i<=backOfQueue;i++){
+               if(arr[i]==1){
+                   result =arr[i];
+                   for(int X =i; X<backOfQueue; X++){
+                       arr[X] = arr[X +1];
+                   }
+                   backOfQueue--;
+                   nItems--;
+               }
+           }
+
+        }
+        return result;
 
     }
 }
