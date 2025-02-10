@@ -62,7 +62,7 @@ public class QueueArray {
         System.out.println("Inserted " + value + " into the queue");
     }
 
-    public int deQueue() {
+    public void deQueue() {
         int result = 0;
         if (isEmpty()) {
             System.out.println("The Queue is empty");
@@ -73,11 +73,11 @@ public class QueueArray {
                 beginningOfQueue = backOfQueue = -1;
             }
             nItems--;
+            System.out.println("You have adopted our oldest animal");
         }
-        return result;
     }
 
-    public int adoptOldestDog(){
+    public void adoptOldestDog(){
         int result = 0;
 
         if (isEmpty()) {
@@ -99,7 +99,31 @@ public class QueueArray {
            }
 
         }
-        return result;
+
+    }
+
+    public void adoptOldestCat(){
+        int result = 0;
+
+        if (isEmpty()) {
+            System.out.println("The Queue is empty");
+
+        } else {
+            for(int i =beginningOfQueue; i<=backOfQueue;i++){
+                if(arr[i]==0){
+                    result =arr[i];
+                    for(int X =i; X<backOfQueue; X++){
+                        arr[X] = arr[X +1];
+                    }
+                    backOfQueue--;
+                    nItems--;
+                    System.out.println("You have adopted our oldest cat");
+                    break;
+
+                }
+            }
+
+        }
 
     }
 }

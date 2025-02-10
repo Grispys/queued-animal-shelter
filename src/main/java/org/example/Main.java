@@ -5,17 +5,21 @@ import java.util.Scanner;
 public class Main {
     public static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        QueueArray shelter = new QueueArray(10);
+        QueueArray shelter = new QueueArray(15);
         shelter.isEmpty();
         System.out.println("1 is dog. 0 is cat.");
 
         shelter.enQueue(0);
-        shelter.enQueue(1);
+        shelter.enQueue(0);
         shelter.enQueue(0);
         shelter.enQueue(1);
         shelter.enQueue(0);
         shelter.enQueue(1);
         shelter.enQueue(0);
+        shelter.enQueue(1);
+        shelter.enQueue(1);
+        shelter.enQueue(1);
+        shelter.enQueue(1);
         shelter.enQueue(1);
         shelter.enQueue(0);
         shelter.getQueue();
@@ -28,10 +32,11 @@ public class Main {
                     shelter.adoptOldestDog();
                     break;
                 case 2:
+                    shelter.adoptOldestCat();
                     break;
                 case 3:
                     shelter.deQueue();
-                    System.out.println("you have adopted out oldest animal");
+
                     break;
                 case 4:
                     shelter.getQueue();
