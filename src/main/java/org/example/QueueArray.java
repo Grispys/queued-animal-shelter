@@ -15,6 +15,8 @@ public class QueueArray {
 
     }
 
+
+//    prints queue
     public void getQueue(){
         for (int i = beginningOfQueue; i <backOfQueue +1; i++){
             System.out.print(arr[i]);
@@ -27,7 +29,7 @@ public class QueueArray {
 
 
 
-
+//checks if queue is full
     public boolean isFull(){
         if (backOfQueue == arr.length - 1){
             return true;
@@ -37,7 +39,7 @@ public class QueueArray {
     }
 
 
-
+//checks if empty
     public boolean isEmpty(){
         if (nItems ==0){
             System.out.println("Empty");
@@ -49,7 +51,7 @@ public class QueueArray {
     }
 
 
-
+// adds to the queue
     public void enQueue(int value) {
         if (isFull()) {
             System.out.println("full queue");
@@ -61,7 +63,7 @@ public class QueueArray {
         nItems++;
         System.out.println("Inserted " + value + " into the queue");
     }
-
+// remove from the queue
     public void deQueue() {
         int result = 0;
         if (isEmpty()) {
@@ -72,11 +74,12 @@ public class QueueArray {
             if (beginningOfQueue > backOfQueue) {
                 beginningOfQueue = backOfQueue = -1;
             }
+
             nItems--;
             System.out.println("You have adopted our oldest animal");
         }
     }
-
+//adopt the oldest dog(1) from the queue
     public void adoptOldestDog(){
         int result = 0;
 
@@ -101,7 +104,7 @@ public class QueueArray {
         }
 
     }
-
+//adopt the oldest cat(0) from the queue
     public void adoptOldestCat(){
         int result = 0;
 
